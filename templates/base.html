@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tag -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <meta name="description"
+        content="Explore Dori's Python Life in Words, a Django-powered blog project featuring advanced search, SEO, tagging, and a seamless user experience. Built with PostgreSQL, Docker, and best practices, it offers scalable and feature-rich blogging with modern web technologies.">
+  <meta name="author" content="Dorothea Reher">
+  <meta name="url" content="http://www.dorothea-reher.com">
+  <meta name="copyright" content="Dorothea Reher">
+  <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
+  <meta name="keywords" content="Django, Blog, Portfolio, Dorothea Reher, HTML, CSS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://www.dorothea-reher.com">
+
+  <title>Deep Opinion {% block title %}{% endblock %}</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Deep Opinion Portal!</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Deep Opinion Portal</p>
+  </footer>
+</body>
+</html>
