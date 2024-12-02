@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4>Results for {{ username }}</h4>
+  <p>The even numbers in your range are: {{ results }}</p>
+
+  <p>The even numbers in your range are:</p>
+    <ul>
+      {% for number in results %}
+      <li>{{ number }}</li>
+      {% endfor %}
+    </ul>
+{% endblock %}
