@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <p>Please enter your username and two positive integers:</p>
+  <form action="display-result" method="post">
+    <label for="username">User name:</label>
+    <input type="text" name="username" id="username" placeholder="User name" required/>
+
+    <label for="int_1">Number 1:</label>
+    <input type="number" name="int_1" id="int_1" min="1" placeholder="Positive number" required/>
+
+    <label for="int_2">Number 2:</label>
+    <input type="number" name="int_2" id="int_2" min="1" placeholder="Second positive number"
+           required/>
+
+    <button type="submit">Enter</button>
+  </form>
+{% endblock %}
