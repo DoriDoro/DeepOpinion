@@ -13,4 +13,5 @@ def initialize_database():
     conn.commit()
     conn.close()
 
-initialize_database()
+# the database is already in place, otherwise create the database with:
+# initialize_database()
