@@ -1,3 +1,4 @@
+import json
 import sqlite3
 
 from flask import Flask, render_template, request, flash, redirect, url_for
@@ -46,5 +47,14 @@ def display_result():
         return redirect(url_for('index'))
 
     results = [number for number in range(int_1, int_2 + 1) if number % 2 == 0]
+
+    # Save the results to the database
+    conn = sqlite3.connect("deep_opinion.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO user_results (username, result_list) VALUES (?, ?)
+    """, (username, json.dumps(results)))
+    conn.commit()
+    conn.close()
 
     return render_template('results.html', username=username, results=results)
