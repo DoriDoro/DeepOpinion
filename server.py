@@ -1,10 +1,11 @@
 import json
 import sqlite3
 
+from decouple import config
 from flask import Flask, render_template, request, flash, redirect, url_for
 
 app = Flask(__name__)
-app.secret_key = "d088e8e0ff2734dbbded08ab661f11bfb684b22161eb8d3f20c8d5a4bd6afb9b"
+app.secret_key = config("SECRET_KEY")
 
 @app.route("/")
 def index():
