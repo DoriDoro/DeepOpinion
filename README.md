@@ -54,3 +54,27 @@ For a more detailed approach, use the following:
     Dean|[4]
     Nelly|[2, 4, 6, 8]
     sqlite> .quit
+
+**Installation:**
+
+Clone the GitHub repository with: 
+```
+$ git clone https://github.com/DoriDoro/DeepOpinion.git
+$ cd DeepOpinion
+```
+
+Create a SECRET_KEY with command: <br>
+`$ make generate_secret_key` <br>
+and add the SECRET_KEY in a `.env` file on root directory.
+
+Create a virtual environment on Linux machine: <br>
+```
+$ python3 -m venv .venv
+$ .venv/bin/activate
+```
+
+Install all dependencies: <br>
+`$ pip install -r requirements.txt`
+
+Start the development server: <br>
+`$ make server`
